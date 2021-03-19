@@ -1,0 +1,279 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="7d24e69f-5356-4378-a99e-6a987541cea2" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/437BA245-D840-4784-B9FB-AB9B439AC908/10/fba99865/Object.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/ef/64c1178c/AnimBool.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/dc/789d6645/Editor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D1E10579-DEED-45ED-81C1-364E82F07367/d0/c40b16c7/EditorWindow.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/f6/bf817b87/JTokenType.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/f2/a50ce978/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/10/849553c8/Selection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/bf/4fa3442f/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file:///Applications/Unity/Hub/Editor/2019.3.8f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Editor/UI/ButtonEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/22/70f078ec/EditorUtility.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/61/97a78b9e/JToken.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C4AF769B-3F82-4900-9346-13D625CDB417/07/bb0d9b3e/File.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/0e/62379844/JProperty.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/46/1afe599c/EditorGUILayout.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/81CB0657-EDC3-4C80-AE70-3FDAD430D6A0/6a/27c57cc8/GUILayout.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/FadeGroup/Editor/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/eb/ae5e3fb2/JContainer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/6c/db18f9e2/JObject.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/69/48284b11/JsonConvert.cs" root0="SKIP_HIGHLIGHTING" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/Assets/FadeGroup/Editor/EnemySpawner.cs" />
+        <option value="$PROJECT_DIR$/Assets/Json/google-service.txts.txt" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Json/simple.json" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/JSONWindow.cs" />
+        <option value="$PROJECT_DIR$/Assets/Json/array.json" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1pxyc6nia9esUsc2RhWP49ensYj" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DebuggerViewTab_PTCS_FirstProportionKey" value="0.31402275" />
+    <property name="DebuggerViewTab_PTCS_LastProportionKey" value="0.33026528" />
+    <property name="Discover.Launch.Via.Unity" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="XThreadsFramesViewSplitterKey" value="0.1761658" />
+    <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RunManager" selected="Attach to Unity Editor.Attach to Unity Editor">
+    <configuration name="Attach to Unity Editor &amp; Play" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="UNITY_ATTACH_AND_PLAY" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+    <configuration name="Attach to Unity Editor" type="UNITY_DEBUG_RUN_CONFIGURATION" factoryName="Unity Debug" show_console_on_std_err="false" show_console_on_std_out="false" port="50000" address="localhost">
+      <option name="allowRunningInParallel" value="false" />
+      <option name="listenPortForConnections" value="false" />
+      <option name="pid" />
+      <option name="selectedOptions">
+        <set />
+      </option>
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="7d24e69f-5356-4378-a99e-6a987541cea2" name="Default Changelist" comment="" />
+      <created>1616139113860</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616139113860</updated>
+      <workItem from="1616139122131" duration="13049000" />
+      <workItem from="1616154193393" duration="16423000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
+  <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="VcsManagerConfiguration">
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1194" height="463" key="DebuggerActiveHint" timestamp="1616171524589">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1194" height="463" key="DebuggerActiveHint/0.23.1920.952@0.23.1920.952" timestamp="1616171524589" />
+    <state width="855" height="464" key="DebuggerActiveHint/0.23.1920.956@0.23.1920.956" timestamp="1616152342588" />
+    <state width="1878" height="92" key="GridCell.Tab.0.bottom" timestamp="1616166488706">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.0.bottom/0.23.1920.952@0.23.1920.952" timestamp="1616166488706" />
+    <state width="1535" height="92" key="GridCell.Tab.0.bottom/0.23.1920.956@0.23.1920.956" timestamp="1616152294682" />
+    <state width="1878" height="92" key="GridCell.Tab.0.center" timestamp="1616166488706">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.0.center/0.23.1920.952@0.23.1920.952" timestamp="1616166488706" />
+    <state width="1535" height="92" key="GridCell.Tab.0.center/0.23.1920.956@0.23.1920.956" timestamp="1616152294681" />
+    <state width="1878" height="92" key="GridCell.Tab.0.left" timestamp="1616166488706">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.0.left/0.23.1920.952@0.23.1920.952" timestamp="1616166488706" />
+    <state width="1535" height="92" key="GridCell.Tab.0.left/0.23.1920.956@0.23.1920.956" timestamp="1616152294681" />
+    <state width="1878" height="92" key="GridCell.Tab.0.right" timestamp="1616166488706">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.0.right/0.23.1920.952@0.23.1920.952" timestamp="1616166488706" />
+    <state width="1535" height="92" key="GridCell.Tab.0.right/0.23.1920.956@0.23.1920.956" timestamp="1616152294681" />
+    <state width="1878" height="92" key="GridCell.Tab.1.bottom" timestamp="1616166498508">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.1.bottom/0.23.1920.952@0.23.1920.952" timestamp="1616166498508" />
+    <state width="1535" height="92" key="GridCell.Tab.1.bottom/0.23.1920.956@0.23.1920.956" timestamp="1616152322596" />
+    <state width="1878" height="92" key="GridCell.Tab.1.center" timestamp="1616166498508">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.1.center/0.23.1920.952@0.23.1920.952" timestamp="1616166498508" />
+    <state width="1535" height="92" key="GridCell.Tab.1.center/0.23.1920.956@0.23.1920.956" timestamp="1616152322595" />
+    <state width="1878" height="92" key="GridCell.Tab.1.left" timestamp="1616166498507">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.1.left/0.23.1920.952@0.23.1920.952" timestamp="1616166498507" />
+    <state width="1535" height="92" key="GridCell.Tab.1.left/0.23.1920.956@0.23.1920.956" timestamp="1616152322595" />
+    <state width="1878" height="92" key="GridCell.Tab.1.right" timestamp="1616166498508">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.1.right/0.23.1920.952@0.23.1920.952" timestamp="1616166498508" />
+    <state width="1535" height="92" key="GridCell.Tab.1.right/0.23.1920.956@0.23.1920.956" timestamp="1616152322596" />
+    <state width="1878" height="92" key="GridCell.Tab.2.bottom" timestamp="1616166488649">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.2.bottom/0.23.1920.952@0.23.1920.952" timestamp="1616166488649" />
+    <state width="1535" height="92" key="GridCell.Tab.2.bottom/0.23.1920.956@0.23.1920.956" timestamp="1616152294610" />
+    <state width="1878" height="92" key="GridCell.Tab.2.center" timestamp="1616166488649">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.2.center/0.23.1920.952@0.23.1920.952" timestamp="1616166488649" />
+    <state width="1535" height="92" key="GridCell.Tab.2.center/0.23.1920.956@0.23.1920.956" timestamp="1616152294610" />
+    <state width="1878" height="92" key="GridCell.Tab.2.left" timestamp="1616166488649">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.2.left/0.23.1920.952@0.23.1920.952" timestamp="1616166488649" />
+    <state width="1535" height="92" key="GridCell.Tab.2.left/0.23.1920.956@0.23.1920.956" timestamp="1616152294610" />
+    <state width="1878" height="92" key="GridCell.Tab.2.right" timestamp="1616166488649">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.2.right/0.23.1920.952@0.23.1920.952" timestamp="1616166488649" />
+    <state width="1535" height="92" key="GridCell.Tab.2.right/0.23.1920.956@0.23.1920.956" timestamp="1616152294610" />
+    <state width="1878" height="92" key="GridCell.Tab.3.bottom" timestamp="1616166488650">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.3.bottom/0.23.1920.952@0.23.1920.952" timestamp="1616166488650" />
+    <state width="1535" height="92" key="GridCell.Tab.3.bottom/0.23.1920.956@0.23.1920.956" timestamp="1616152294611" />
+    <state width="1878" height="92" key="GridCell.Tab.3.center" timestamp="1616166488649">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.3.center/0.23.1920.952@0.23.1920.952" timestamp="1616166488649" />
+    <state width="1535" height="92" key="GridCell.Tab.3.center/0.23.1920.956@0.23.1920.956" timestamp="1616152294610" />
+    <state width="1878" height="92" key="GridCell.Tab.3.left" timestamp="1616166488649">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.3.left/0.23.1920.952@0.23.1920.952" timestamp="1616166488649" />
+    <state width="1535" height="92" key="GridCell.Tab.3.left/0.23.1920.956@0.23.1920.956" timestamp="1616152294610" />
+    <state width="1878" height="92" key="GridCell.Tab.3.right" timestamp="1616166488650">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="1878" height="92" key="GridCell.Tab.3.right/0.23.1920.952@0.23.1920.952" timestamp="1616166488650" />
+    <state width="1535" height="92" key="GridCell.Tab.3.right/0.23.1920.956@0.23.1920.956" timestamp="1616152294611" />
+    <state width="788" height="476" key="XDebugger.FullValuePopup" timestamp="1616152517825">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state width="788" height="476" key="XDebugger.FullValuePopup/0.23.1920.952@0.23.1920.952" timestamp="1616152517825" />
+    <state x="623" y="231" key="search.everywhere.popup" timestamp="1616143800633">
+      <screen x="0" y="23" width="1920" height="956" />
+    </state>
+    <state x="623" y="231" key="search.everywhere.popup/0.23.1920.956@0.23.1920.956" timestamp="1616143800633" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs</url>
+          <line>47</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" initialLine="66">
+            <startOffsets>
+              <option value="1111" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1112" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs</url>
+          <line>65</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" initialLine="64">
+            <startOffsets>
+              <option value="1769" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1775" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="49" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs</url>
+          <line>63</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" initialLine="63">
+            <startOffsets>
+              <option value="1689" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1711" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs</url>
+          <line>64</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" initialLine="69">
+            <startOffsets>
+              <option value="1729" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1752" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="51" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs</url>
+          <line>45</line>
+          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" initialLine="45">
+            <startOffsets>
+              <option value="1084" />
+            </startOffsets>
+            <endOffsets>
+              <option value="1097" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="52" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+    <pin-to-top-manager>
+      <pinned-members>
+        <PinnedItemInfo parentTag="Type#Newtonsoft.Json.Linq.JToken" memberName="Parent" />
+        <PinnedItemInfo parentTag="Type#System.Collections.Generic.KeyValuePair`2" memberName="value" />
+        <PinnedItemInfo parentTag="Type#Newtonsoft.Json.Linq.JValue" memberName="Value" />
+        <PinnedItemInfo parentTag="Type#Newtonsoft.Json.Linq.JProperty+JPropertyList" memberName="Count" />
+        <PinnedItemInfo parentTag="Type#Newtonsoft.Json.Linq.JContainer" memberName="Count" />
+        <PinnedItemInfo parentTag="Type#ParsedData" memberName="Value" />
+        <PinnedItemInfo parentTag="Type#Newtonsoft.Json.Linq.JObject" memberName="ChildrenTokens" />
+      </pinned-members>
+    </pin-to-top-manager>
+  </component>
+</project>

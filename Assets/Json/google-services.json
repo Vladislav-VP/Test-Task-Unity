@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "898270045023",
+    "project_id": "fitcheck-ar-6ca9f",
+    "storage_bucket": "fitcheck-ar-6ca9f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:898270045023:android:eab835b9c96fb600a90cea",
+        "android_client_info": {
+          "package_name": "com.fitcheck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "898270045023-rhs5avacd2lnuu1u3ni15rtdh53qr4mt.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCc1YHJJqvxcCGGwWTdSjIzE0vcZ4bei_M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "898270045023-rhs5avacd2lnuu1u3ni15rtdh53qr4mt.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "898270045023-elo4qtlkcpj1uac6m082mndic0pbmg0t.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.fitcheck"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
