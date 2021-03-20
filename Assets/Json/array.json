@@ -1,11 +1,21 @@
 {
-  "ids":
-  [
+  "ids": [
     {
       "id": 1
     },
     {
       "id": 2
+    },
+    false,
+    false,
+    0,
+    0,
+    "",
+    {
+      "boolfield": false,
+      "obh": {
+        "regc": false
+      }
     }
   ]
 }
