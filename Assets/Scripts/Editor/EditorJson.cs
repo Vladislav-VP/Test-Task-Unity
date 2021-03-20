@@ -14,8 +14,8 @@ public class UnityJsonEditor : EditorWindow
     private Dictionary<JToken, string> addObjName = new Dictionary<JToken, string>();
     private Dictionary<JToken, int> addObjType = new Dictionary<JToken, int>();
     private bool showFileSettings = true, showCredits = true, showFileContents, itemRemoved;
+    private bool loadClicked;
     private int createType = 0;
-    private TextAsset asset = null;
     private string dataPath = null;
     private GUIStyle remButtonStyle, keyFieldStyle, boldFoldoutStyle, typeTextStyle, textFieldStyle;
     private GUIStyle dropDownStyle, btnAddStyle, dropDownCreateStyle;
@@ -28,10 +28,8 @@ public class UnityJsonEditor : EditorWindow
     #endregion
 
     #region JSONFile
-    private void OpenJSON(string path)
+    private void ReadJSON(string path)
     {
-        Debug.Log($"Asset path: {path}");
-
         if (string.IsNullOrEmpty(path))
         {
             path = EditorUtility.OpenFilePanel("Open JSON File", "", "json");
@@ -48,7 +46,7 @@ public class UnityJsonEditor : EditorWindow
         scrollPosContent = Vector2.zero;
         string text = File.ReadAllText(path);
         dataPath = path;
-        asset = null;
+
         try
         {
             rootObject = (JToken)JsonConvert.DeserializeObject(text);
@@ -62,7 +60,7 @@ public class UnityJsonEditor : EditorWindow
         }
     }
 
-    private void SaveJSON(bool overwrite)
+    private void SaveJSON()
     {
         File.WriteAllText(dataPath, rootObject.ToString());
     }
@@ -123,11 +121,14 @@ public class UnityJsonEditor : EditorWindow
     {
         SetVariableSettings();
         GUILayout.BeginVertical();
+
         showFileSettings = EditorGUILayout.Foldout(showFileSettings, "File Settings", boldFoldoutStyle);
         if (showFileSettings)
         {
             DisplayFileSettings();
         }            
+        TryLoadTextAsset();
+
         showFileContents = EditorGUILayout.Foldout(showFileContents, "File Contents", boldFoldoutStyle);
 
         if (!showFileContents)
@@ -144,7 +145,7 @@ public class UnityJsonEditor : EditorWindow
         GUILayout.BeginHorizontal();
         if (GUILayout.Button("Save"))
         {
-            SaveJSON(true);
+            SaveJSON();
             return;
         }
 
@@ -178,7 +179,9 @@ public class UnityJsonEditor : EditorWindow
             {
                 DisplayItem(token.Value);
                 if (itemRemoved)
+                {
                     return;
+                }
             }
         }
 
@@ -189,27 +192,13 @@ public class UnityJsonEditor : EditorWindow
             {
                 DisplayItem(token);
                 if (itemRemoved)
+                {
                     return;
+                }
             }
         }
 
         GUILayout.EndScrollView();
-    }
-
-    private void DisplayItem(JToken token)
-    {
-        switch (token.Type)
-        {
-            case JTokenType.Object:
-                DisplayRowJObject(token);
-                break;
-            case JTokenType.Array:
-                DisplayRowJArray(token);
-                break;
-            default:
-                DisplayRowJValue(token);
-                break;
-        }
     }
 
     private void DisplayRowJObject(JToken objectToken)
@@ -217,24 +206,34 @@ public class UnityJsonEditor : EditorWindow
         BeginDisplay();
         GetRemoveButton(objectToken);
         if (itemRemoved)
+        {
             return;
+        }
+
         GetKey(objectToken);
         bool foldOut = GetObjectFoldLabel(objectToken);
         GUILayout.EndHorizontal();
-        if (foldOut)
+
+        if (!foldOut)
         {
-            EditorGUI.indentLevel++;
-            GetAddRow(objectToken);
-            GUILayout.BeginVertical();
-            foreach (JProperty token in ((JObject)(objectToken)).Properties())
-            {
-                DisplayItem(token.Value);
-                if (itemRemoved)
-                    return;
-            }
-            EditorGUI.indentLevel--;
-            GUILayout.EndVertical();
+            return;
         }
+
+        EditorGUI.indentLevel++;
+        GetAddRow(objectToken);
+        GUILayout.BeginVertical();
+
+        foreach (JProperty token in ((JObject)(objectToken)).Properties())
+        {
+            DisplayItem(token.Value);
+            if (itemRemoved)
+            {
+                return;
+            }
+        }
+
+        EditorGUI.indentLevel--;
+        GUILayout.EndVertical();
     }
 
     private void DisplayRowJValue(JToken objectToken)
@@ -256,30 +255,57 @@ public class UnityJsonEditor : EditorWindow
         BeginDisplay();
         GetRemoveButton(objectToken);
         if (itemRemoved)
+        {
             return;
+        }
+
         GetKey(objectToken);
         bool foldOut = GetObjectFoldLabel(objectToken);
         GUILayout.EndHorizontal();
-        if (foldOut)
+
+
+
+        if (!foldOut)
         {
-            EditorGUI.indentLevel++;
-            GetAddRow(objectToken);
-            GUILayout.BeginVertical();
-            foreach (JToken kid in ((JArray)(objectToken)).Children())
-            {
-                DisplayItem(kid);
-                if (itemRemoved)
-                    return;
-            }
-            EditorGUI.indentLevel--;
-            GUILayout.EndVertical();
+            return;
         }
+
+        EditorGUI.indentLevel++;
+        GetAddRow(objectToken);
+        GUILayout.BeginVertical();
+        foreach (JToken kid in ((JArray)(objectToken)).Children())
+        {
+            DisplayItem(kid);
+            if (itemRemoved)
+            {
+                return;
+            }
+        }
+
+        EditorGUI.indentLevel--;
+        GUILayout.EndVertical();
     }
 
     private void BeginDisplay()
     {
         GUILayout.BeginHorizontal();
         GUILayout.Space(5 + EditorGUI.indentLevel * 15f);
+    }
+
+    private void DisplayItem(JToken token)
+    {
+        switch (token.Type)
+        {
+            case JTokenType.Object:
+                DisplayRowJObject(token);
+                break;
+            case JTokenType.Array:
+                DisplayRowJArray(token);
+                break;
+            default:
+                DisplayRowJValue(token);
+                break;
+        }
     }
 
     #region RowParts
@@ -290,16 +316,28 @@ public class UnityJsonEditor : EditorWindow
         if (parent.Type == JTokenType.Object)
         {
             if (addObjName.ContainsKey(parent))
+            {
                 name = addObjName[parent];
-            else addObjName.Add(parent, name);
+            }
+            else
+            {
+                addObjName.Add(parent, name);
+            }
+
             name = GUILayout.TextField(name, keyFieldStyle);
             addObjName[parent] = name;
         }
+
         int selected = 0;
         if (addObjType.ContainsKey(parent))
+        {
             selected = addObjType[parent];
-        else addObjType.Add(parent, selected);
-        selected = EditorGUILayout.Popup("", selected, valueTypes, dropDownStyle);
+        }
+        else
+        {
+            addObjType.Add(parent, selected);
+        }
+        selected = EditorGUILayout.Popup(string.Empty, selected, valueTypes, dropDownStyle);
         addObjType[parent] = selected;
         if (GUILayout.Button("Add Object", btnAddStyle))
         {
@@ -321,53 +359,72 @@ public class UnityJsonEditor : EditorWindow
                 case 4:
                     val = new JObject();
                     break;
-                default:
-                    throw new ArgumentException("Invalid Object Type");
             }
             if (parent.Type == JTokenType.Array)
             {
                 JArray array = (JArray)parent;
                 array.Add(val);
             }
-            else if (parent.Type == JTokenType.Object)
+            if (parent.Type == JTokenType.Object)
             {
                 JObject obj = (JObject)parent;
                 if (name.Equals(string.Empty) || name == null || obj[name] != null)
+                {
                     return;
+                }
+
                 obj.Add(name, val);
                 addObjName[parent] = string.Empty;
             }
         }
+
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
     }
 
     private void GetRemoveButton(JToken toRemove)
     {
-        if (GUILayout.Button("-", remButtonStyle))
+        if (!GUILayout.Button("-", remButtonStyle))
         {
-            if (toRemove.Parent.Type == JTokenType.Property)
-                ((JProperty)toRemove.Parent).Remove();
-            else if (toRemove.Parent.Type == JTokenType.Array)
-                ((JArray)toRemove.Parent).Remove(toRemove);
-            itemRemoved = true;
+            return;
         }
+
+        if (toRemove.Parent.Type == JTokenType.Property)
+        {
+            ((JProperty)toRemove.Parent).Remove();
+        }
+
+        if (toRemove.Parent.Type == JTokenType.Array)
+        {
+            ((JArray)toRemove.Parent).Remove(toRemove);
+        }
+
+        itemRemoved = true;
     }
 
     private void GetKey(JToken token)
     {
         if (token.Parent.Type != JTokenType.Property)
-            return;
-        JProperty property = (JProperty)(token.Parent);
-        string key = GUILayout.TextField(property.Name, keyFieldStyle);
-        if (!key.Equals(property.Name))
         {
-            JProperty newToken = new JProperty(key, property.Value);
-            try
-            {
-                property.Replace(newToken);
-            }
-            catch (ArgumentException) { }
+            return;
+        }
+
+        JProperty property = (JProperty)token.Parent;
+        string key = GUILayout.TextField(property.Name, keyFieldStyle);
+
+        if (key.Equals(property.Name))
+        {
+            return;
+        }
+
+        JProperty newToken = new JProperty(key, property.Value);
+        try
+        {
+            property.Replace(newToken);
+        }
+        catch (ArgumentException)
+        {
+            Debug.LogError("Error when replacing token");
         }
     }
 
@@ -375,25 +432,35 @@ public class UnityJsonEditor : EditorWindow
     {
         bool foldOut = false;
         if (foldState.ContainsKey(objectToken))
+        {
             foldOut = foldState[objectToken];
+        }
         else
+        {
             foldState.Add(objectToken, false);
-        int i = EditorGUI.indentLevel;
+        }
+
+        int indentLevel = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 0;
         string label = "JObject";
         if (objectToken.Type == JTokenType.Array)
+        {
             label = "JArray";
+        }
         if (objectToken.Parent.Type == JTokenType.Property)
+        {
             label += " - " + ((JProperty)objectToken.Parent).Name;
+        }
+
         foldOut = EditorGUILayout.Foldout(foldOut, label);
-        EditorGUI.indentLevel = i;
+        EditorGUI.indentLevel = indentLevel;
         foldState[objectToken] = foldOut;
         return foldOut;
     }
 
     private void GetField(JToken obj)
     {
-        int i = EditorGUI.indentLevel;
+        int indentLevel = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 0;
         var val = obj;
         switch (obj.Type)
@@ -415,9 +482,11 @@ public class UnityJsonEditor : EditorWindow
         }   
 
         if (obj.Type != JTokenType.Boolean)
+        {
             GUILayout.Label(obj.Type.ToString(), typeTextStyle);
+        }
 
-        EditorGUI.indentLevel = i;
+        EditorGUI.indentLevel = indentLevel;
 
         if (val.Equals(obj))
         {
@@ -428,7 +497,7 @@ public class UnityJsonEditor : EditorWindow
         {
             ((JProperty)obj.Parent).Value = val;
         }
-        else if (obj.Parent.Type == JTokenType.Array)
+        if (obj.Parent.Type == JTokenType.Array)
         {
             obj.Replace(val);
         }
@@ -451,33 +520,37 @@ public class UnityJsonEditor : EditorWindow
         GUILayout.EndHorizontal();
     }
 
+    private void TryLoadTextAsset()
+    {
+        TextAsset asset = Selection.activeObject as TextAsset;
+
+        if (asset == null)
+        {
+            return;
+        }
+
+        dataPath = AssetDatabase.GetAssetPath(asset);
+        Debug.Log($"Asset path : {dataPath}");
+
+        if (dataPath.Contains(".metadata") || dataPath.Contains(".txt"))
+        {
+            loadClicked = GUILayout.Button("Load");
+        }
+
+        if (loadClicked)
+        {
+            ReadJSON(dataPath);
+            loadClicked = false;
+            asset = null;
+        }
+    }
+
     private void DisplayFileSettings()
     {
         if (GUILayout.Button("Browse"))
         {
-            OpenJSON(null);
+            ReadJSON(null);
         }
-            
-        /*if (dataPath == null || dataPath.Length == 0)
-        {
-            if (asset != null)
-                ShowFileData(asset.name, AssetDatabase.GetAssetPath(asset));
-            asset = (TextAsset)EditorGUILayout.ObjectField(asset, typeof(TextAsset), false);
-            if (asset == null)
-                rootObject = null;
-            else OpenJSON(AssetDatabase.GetAssetPath(asset));
-            if (GUILayout.Button("Browse"))
-                OpenJSON(null);
-            GUILayout.BeginHorizontal();
-            createType = EditorGUILayout.Popup(createType, new string[] { valueTypes[4], valueTypes[5] }, dropDownCreateStyle);
-            GUILayout.EndHorizontal();
-        }
-        else
-        {
-            ShowFileData(Path.GetFileNameWithoutExtension(dataPath), dataPath);
-            if (GUILayout.Button("Close JSON File"))
-                dataPath = null;
-        }*/
     }
     #endregion
 }
