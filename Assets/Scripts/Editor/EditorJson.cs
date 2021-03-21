@@ -1,33 +1,46 @@
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using UnityEditor;
 using UnityEngine;
 
-public class UnityJsonEditor : EditorWindow
+public class EditorJson : EditorWindow
 {
-    #region Variables
     private JToken rootObject = null;
     private Dictionary<JToken, bool> foldState = new Dictionary<JToken, bool>();
     private Dictionary<JToken, string> addObjName = new Dictionary<JToken, string>();
     private Dictionary<JToken, int> addObjType = new Dictionary<JToken, int>();
-    private bool showFileSettings = true, showCredits = true, showFileContents, itemRemoved;
+
+    private bool showFileSettings = true;
+    private bool showCredits = true;
+    private bool showFileContents;
+    private bool itemRemoved;
     private bool loadClicked;
+
     private int createType = 0;
+
     private string dataPath = null;
-    private GUIStyle remButtonStyle, keyFieldStyle, boldFoldoutStyle, typeTextStyle, textFieldStyle;
-    private GUIStyle dropDownStyle, btnAddStyle, dropDownCreateStyle;
-    private GUIStyle largeLabelStyle, boldLabelStyle;
+
+    private GUIStyle removeButtonStyle;
+    private GUIStyle keyFieldStyle;
+    private GUIStyle boldFoldoutStyle;
+    private GUIStyle typeTextStyle;
+    private GUIStyle textFieldStyle;
+    private GUIStyle dropDownStyle;
+    private GUIStyle btnAddStyle;
+    private GUIStyle dropDownCreateStyle;
+    private GUIStyle largeLabelStyle;
+    private GUIStyle boldLabelStyle;
+
+
     private Vector2 scrollPosContent = Vector2.zero;
     private string[] valueTypes = new string[]
     {
         "Boolean", "Integer", "Double", "String", "JObject", "JArray"
     };
-    #endregion
 
-    #region JSONFile
     private void ReadJSON(string path)
     {
         if (string.IsNullOrEmpty(path))
@@ -64,13 +77,11 @@ public class UnityJsonEditor : EditorWindow
     {
         File.WriteAllText(dataPath, rootObject.ToString());
     }
-    #endregion
 
-    #region UnityMethods
-    [MenuItem("Tools/JSON Editor")]
+    [MenuItem("Window/JSON Editor")]
     public static void ShowWindow()
     {
-        GetWindow(typeof(UnityJsonEditor));
+        GetWindow(typeof(EditorJson));
     }
     
     private void Awake()
@@ -79,7 +90,7 @@ public class UnityJsonEditor : EditorWindow
         {
             fontStyle = FontStyle.Bold
         };
-        remButtonStyle = new GUIStyle(EditorStyles.miniButton)
+        removeButtonStyle = new GUIStyle(EditorStyles.miniButton)
         {
             stretchWidth = false,
             fontStyle = FontStyle.Bold
@@ -155,7 +166,6 @@ public class UnityJsonEditor : EditorWindow
         GUILayout.EndVertical();
     }
 
-    #region Other
     private void SetVariableSettings()
     {
         keyFieldStyle.fixedWidth = Screen.width / 5f;
@@ -163,10 +173,7 @@ public class UnityJsonEditor : EditorWindow
         dropDownStyle.fixedWidth = Screen.width * .2f;
         itemRemoved = false;
     }
-    #endregion
-    #endregion
 
-    #region DisplayObject
     private void DisplayRootObject()
     {
         GetAddRow(rootObject);
@@ -308,7 +315,6 @@ public class UnityJsonEditor : EditorWindow
         }
     }
 
-    #region RowParts
     private void GetAddRow(JToken parent)
     {
         BeginDisplay();
@@ -384,7 +390,7 @@ public class UnityJsonEditor : EditorWindow
 
     private void GetRemoveButton(JToken toRemove)
     {
-        if (!GUILayout.Button("-", remButtonStyle))
+        if (!GUILayout.Button("-", removeButtonStyle))
         {
             return;
         }
@@ -502,10 +508,7 @@ public class UnityJsonEditor : EditorWindow
             obj.Replace(val);
         }
     }
-    #endregion
-    #endregion
 
-    #region DisplayFile
     private void ShowFileData(string name, string path)
     {
         GUILayout.BeginHorizontal();
@@ -530,7 +533,6 @@ public class UnityJsonEditor : EditorWindow
         }
 
         dataPath = AssetDatabase.GetAssetPath(asset);
-        Debug.Log($"Asset path : {dataPath}");
 
         if (dataPath.Contains(".metadata") || dataPath.Contains(".txt"))
         {
@@ -552,5 +554,4 @@ public class UnityJsonEditor : EditorWindow
             ReadJSON(null);
         }
     }
-    #endregion
 }
