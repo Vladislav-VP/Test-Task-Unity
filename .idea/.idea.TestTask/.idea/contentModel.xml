@@ -17,7 +17,7 @@
           </e>
           <e p="Utils" t="Include">
             <e p="FileHelper.cs" t="Include" />
-            <e p="JsonSerializer.cs" t="Include" />
+            <e p="JsonParser.cs" t="Include" />
           </e>
         </e>
       </e>

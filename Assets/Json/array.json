@@ -17,5 +17,10 @@
         "regc": false
       }
     }
-  ]
+  ],
+  "myInt": 3,
+  "obj": {
+    "bul": false,
+    "nested": {}
+  }
 }

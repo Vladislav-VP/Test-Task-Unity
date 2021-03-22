@@ -9,7 +9,7 @@ using UnityEngine;
 public class EditorJson : EditorWindow
 {
     private static FileHelper fileHelper = new FileHelper();
-    private static JsonSerializer serializer = new JsonSerializer();
+    private static JsonParser parser = new JsonParser();
     
     private JToken rootObject = null;
     private Dictionary<JToken, bool> foldState = new Dictionary<JToken, bool>();
@@ -17,7 +17,6 @@ public class EditorJson : EditorWindow
     private Dictionary<JToken, int> addObjType = new Dictionary<JToken, int>();
 
     private bool showFileSettings = true;
-    private bool showCredits = true;
     private bool showFileContents;
     private bool itemRemoved;
     private bool loadClicked;
@@ -34,16 +33,11 @@ public class EditorJson : EditorWindow
     private GUIStyle dropDownStyle;
     private GUIStyle btnAddStyle;
 
-    private string[] valueTypes = new string[]
-    {
-        "Boolean", "Integer", "Double", "String", "JObject", "JArray"
-    };
-
     private void LoadJSON(string path)
     {
         if (string.IsNullOrEmpty(path))
         {
-            path = EditorUtility.OpenFilePanel("Open JSON File", "", "json");
+            path = EditorUtility.OpenFilePanel("Open JSON File", string.Empty, "json");
         }
 
         if (string.IsNullOrEmpty(path))
@@ -51,23 +45,19 @@ public class EditorJson : EditorWindow
             return;
         }
 
-        foldState.Clear();
-        addObjName.Clear();
-        addObjType.Clear();
-        string text = fileHelper.Load(path);
+        ResetData();
+        
+        string json = fileHelper.Load(path);
         dataPath = path;
 
-        try
+        rootObject = parser.DeserializeJson(json);
+        if (rootObject == null)
         {
-            rootObject = (JToken)JsonConvert.DeserializeObject(text);
-            showCredits = false;
-            showFileContents = true;
-        }
-        catch (JsonReaderException e)
-        {
-            dataPath = null;
             EditorUtility.DisplayDialog("Error!", "Invalid JSON Data!", "OK");
+            return;
         }
+        
+        showFileContents = true;
     }
 
     private void SaveJSON()
@@ -135,7 +125,6 @@ public class EditorJson : EditorWindow
 
         if (rootObject == null)
         {
-            GUILayout.Label("No JSON file opened", EditorStyles.largeLabel);
             return;
         }
 
@@ -215,7 +204,7 @@ public class EditorJson : EditorWindow
         GetAddRow(objectToken);
         GUILayout.BeginVertical();
 
-        foreach (JProperty token in ((JObject)(objectToken)).Properties())
+        foreach (JProperty token in ((JObject)objectToken).Properties())
         {
             DisplayItem(token.Value);
             if (itemRemoved)
@@ -263,7 +252,7 @@ public class EditorJson : EditorWindow
         EditorGUI.indentLevel++;
         GetAddRow(objectToken);
         GUILayout.BeginVertical();
-        foreach (JToken kid in ((JArray)(objectToken)).Children())
+        foreach (JToken kid in ((JArray)objectToken).Children())
         {
             DisplayItem(kid);
             if (itemRemoved)
@@ -326,29 +315,11 @@ public class EditorJson : EditorWindow
         {
             addObjType.Add(parent, selected);
         }
-        selected = EditorGUILayout.Popup(string.Empty, selected, valueTypes, dropDownStyle);
+        selected = EditorGUILayout.Popup(string.Empty, selected, parser.ValueTypes, dropDownStyle);
         addObjType[parent] = selected;
         if (GUILayout.Button("Add Object", btnAddStyle))
         {
-            JToken val = new JArray();
-            switch (selected)
-            {
-                case 0:
-                    val = new bool();
-                    break;
-                case 1:
-                    val = new int();
-                    break;
-                case 2:
-                    val = new double();
-                    break;
-                case 3:
-                    val = string.Empty;
-                    break;
-                case 4:
-                    val = new JObject();
-                    break;
-            }
+            JToken val = parser.ParseValue(selected);
             if (parent.Type == JTokenType.Array)
             {
                 JArray array = (JArray)parent;
@@ -357,7 +328,7 @@ public class EditorJson : EditorWindow
             if (parent.Type == JTokenType.Object)
             {
                 JObject obj = (JObject)parent;
-                if (name.Equals(string.Empty) || name == null || obj[name] != null)
+                if (string.IsNullOrEmpty(name) || obj[name] != null)
                 {
                     return;
                 }
@@ -438,7 +409,7 @@ public class EditorJson : EditorWindow
         }
         if (objectToken.Parent.Type == JTokenType.Property)
         {
-            label += " - " + ((JProperty)objectToken.Parent).Name;
+            label = $"{label} - {((JProperty) objectToken.Parent).Name}";
         }
 
         foldOut = EditorGUILayout.Foldout(foldOut, label);
@@ -461,12 +432,10 @@ public class EditorJson : EditorWindow
                 val = GUILayout.TextField((string)obj, textFieldStyle);
                 break;
             case JTokenType.Boolean:
-                val = GUILayout.Toggle((bool)obj, ((bool)obj ? "true" : "false"));
+                val = GUILayout.Toggle((bool)obj, (bool)obj ? "true" : "false");
                 break;
             case JTokenType.Float:
                 val = EditorGUILayout.DoubleField((double)obj, textFieldStyle);
-                break;
-            default:
                 break;
         }   
 
@@ -492,20 +461,6 @@ public class EditorJson : EditorWindow
         }
     }
 
-    private void ShowFileData(string name, string path)
-    {
-        GUILayout.BeginHorizontal();
-        GUILayout.BeginVertical();
-        GUILayout.Label("FileName: ");
-        GUILayout.Label(name, EditorStyles.miniLabel);
-        GUILayout.EndVertical();
-        GUILayout.BeginVertical();
-        GUILayout.Label("FilePath: ");
-        GUILayout.Label(path, EditorStyles.miniLabel);
-        GUILayout.EndVertical();
-        GUILayout.EndHorizontal();
-    }
-
     private void TryLoadTextAsset()
     {
         TextAsset asset = Selection.activeObject as TextAsset;
@@ -526,7 +481,6 @@ public class EditorJson : EditorWindow
         {
             LoadJSON(dataPath);
             loadClicked = false;
-            asset = null;
         }
     }
 
@@ -536,5 +490,12 @@ public class EditorJson : EditorWindow
         {
             LoadJSON(null);
         }
+    }
+
+    private void ResetData()
+    {
+        foldState.Clear();
+        addObjName.Clear();
+        addObjType.Clear();
     }
 }

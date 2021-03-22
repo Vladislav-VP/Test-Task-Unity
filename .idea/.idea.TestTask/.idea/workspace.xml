@@ -20,14 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d24e69f-5356-4378-a99e-6a987541cea2" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/contentModel.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Json/array.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Json/array.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Prefabs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BoundsDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BoundsDrawer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs.meta" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +45,7 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/f6/bf817b87/JTokenType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/f2/a50ce978/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/10/849553c8/Selection.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/bf/4fa3442f/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file:///Applications/Unity/Hub/Editor/2019.3.8f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Editor/UI/ButtonEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/22/70f078ec/EditorUtility.cs" root0="SKIP_HIGHLIGHTING" />
@@ -69,9 +68,10 @@
         <option value="$PROJECT_DIR$/Assets/Json/array.json" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BoundsDrawer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/FileHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs" />
       </list>
     </option>
   </component>
@@ -121,7 +121,7 @@
       <workItem from="1616139122131" duration="13049000" />
       <workItem from="1616154193393" duration="16423000" />
       <workItem from="1616402070770" duration="2200000" />
-      <workItem from="1616407795700" duration="621000" />
+      <workItem from="1616407795700" duration="3556000" />
     </task>
     <servers />
   </component>
@@ -231,6 +231,10 @@
     </state>
     <state width="1878" height="92" key="GridCell.Tab.3.right/0.23.1920.952@0.23.1920.952" timestamp="1616166488650" />
     <state width="1535" height="92" key="GridCell.Tab.3.right/0.23.1920.956@0.23.1920.956" timestamp="1616152294611" />
+    <state x="100" y="123" width="1720" height="752" key="VCS.FileHistoryDialog" timestamp="1616410405755">
+      <screen x="0" y="23" width="1920" height="952" />
+    </state>
+    <state x="100" y="123" width="1720" height="752" key="VCS.FileHistoryDialog/0.23.1920.952@0.23.1920.952" timestamp="1616410405755" />
     <state width="788" height="476" key="XDebugger.FullValuePopup" timestamp="1616152517825">
       <screen x="0" y="23" width="1920" height="952" />
     </state>
