@@ -16,8 +16,6 @@ public class EditorJson : EditorWindow
     private bool itemRemoved;
     private bool loadClicked;
 
-    private int createType = 0;
-
     private string dataPath = null;
 
     private GUIStyle removeButtonStyle;
@@ -27,36 +25,6 @@ public class EditorJson : EditorWindow
     private GUIStyle textFieldStyle;
     private GUIStyle dropDownStyle;
     private GUIStyle btnAddStyle;
-
-    private void LoadJSON(string path)
-    {
-        if (string.IsNullOrEmpty(path))
-        {
-            path = EditorUtility.OpenFilePanel("Open JSON File", string.Empty, "json");
-        }
-
-        if (string.IsNullOrEmpty(path))
-        {
-            return;
-        }
-        
-        string json = fileHelper.Load(path);
-        dataPath = path;
-
-        parser.DeserializeJson(json);
-        if (parser.RootObject == null)
-        {
-            EditorUtility.DisplayDialog("Error!", "Invalid JSON Data!", "OK");
-            return;
-        }
-        
-        showFileContents = true;
-    }
-
-    private void SaveJSON()
-    {
-        fileHelper.Save(dataPath, parser.RootObject.ToString());
-    }
 
     [MenuItem("Window/JSON Editor")]
     public static void ShowWindow()
@@ -134,6 +102,36 @@ public class EditorJson : EditorWindow
         GUILayout.EndVertical();
     }
 
+    private void LoadJSON(string path)
+    {
+        if (string.IsNullOrEmpty(path))
+        {
+            path = EditorUtility.OpenFilePanel("Open JSON File", string.Empty, "json");
+        }
+
+        if (string.IsNullOrEmpty(path))
+        {
+            return;
+        }
+        
+        string json = fileHelper.Load(path);
+        dataPath = path;
+
+        parser.DeserializeJson(json);
+        if (parser.RootObject == null)
+        {
+            EditorUtility.DisplayDialog("Error!", "Invalid JSON Data!", "OK");
+            return;
+        }
+        
+        showFileContents = true;
+    }
+
+    private void SaveJSON()
+    {
+        fileHelper.Save(dataPath, parser.RootObject.ToString());
+    }
+    
     private void SetVariableSettings()
     {
         keyFieldStyle.fixedWidth = Screen.width / 5f;
@@ -283,6 +281,7 @@ public class EditorJson : EditorWindow
     private void GetAddRow(JToken parent)
     {
         BeginDisplay();
+        
         string name = string.Empty;
         if (parent.Type == JTokenType.Object)
         {
@@ -297,23 +296,7 @@ public class EditorJson : EditorWindow
         
         if (GUILayout.Button("Add Object", btnAddStyle))
         {
-            JToken token = parser.ParseValue(selected);
-            if (parent.Type == JTokenType.Array)
-            {
-                JArray array = (JArray)parent;
-                array.Add(token);
-            }
-            if (parent.Type == JTokenType.Object)
-            {
-                JObject obj = (JObject)parent;
-                if (string.IsNullOrEmpty(name) || obj[name] != null)
-                {
-                    return;
-                }
-
-                obj.Add(name, token);
-                parser.SetObjectName(parent,string.Empty);
-            }
+            parser.AddNewObject(parent, selected, name);
         }
 
         GUILayout.FlexibleSpace();
@@ -327,15 +310,7 @@ public class EditorJson : EditorWindow
             return;
         }
 
-        if (toRemove.Parent.Type == JTokenType.Property)
-        {
-            ((JProperty)toRemove.Parent).Remove();
-        }
-
-        if (toRemove.Parent.Type == JTokenType.Array)
-        {
-            ((JArray)toRemove.Parent).Remove(toRemove);
-        }
+        parser.RemoveObject(toRemove);
 
         itemRemoved = true;
     }
@@ -355,15 +330,7 @@ public class EditorJson : EditorWindow
             return;
         }
 
-        JProperty newToken = new JProperty(key, property.Value);
-        try
-        {
-            property.Replace(newToken);
-        }
-        catch (ArgumentException)
-        {
-            Debug.LogError("Error when replacing token");
-        }
+        parser.ReplaceProperty(key, property);
     }
 
     private bool GetObjectFoldLabel(JToken objectToken)
@@ -392,20 +359,20 @@ public class EditorJson : EditorWindow
     {
         int indentLevel = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 0;
-        var val = obj;
+        JToken token = obj;
         switch (obj.Type)
         {
             case JTokenType.Integer:
-                val = EditorGUILayout.IntField((int)obj, textFieldStyle);
+                token = EditorGUILayout.IntField((int)obj, textFieldStyle);
                 break;            
             case JTokenType.String:
-                val = GUILayout.TextField((string)obj, textFieldStyle);
+                token = GUILayout.TextField((string)obj, textFieldStyle);
                 break;
             case JTokenType.Boolean:
-                val = GUILayout.Toggle((bool)obj, (bool)obj ? "true" : "false");
+                token = GUILayout.Toggle((bool)obj, (bool)obj ? "true" : "false");
                 break;
             case JTokenType.Float:
-                val = EditorGUILayout.DoubleField((double)obj, textFieldStyle);
+                token = EditorGUILayout.DoubleField((double)obj, textFieldStyle);
                 break;
         }   
 
@@ -416,19 +383,12 @@ public class EditorJson : EditorWindow
 
         EditorGUI.indentLevel = indentLevel;
 
-        if (val.Equals(obj))
+        if (token.Equals(obj))
         {
             return;
         }
 
-        if (obj.Parent.Type == JTokenType.Property)
-        {
-            ((JProperty)obj.Parent).Value = val;
-        }
-        if (obj.Parent.Type == JTokenType.Array)
-        {
-            obj.Replace(val);
-        }
+        parser.ReplaceObject(obj, token);
     }
 
     private void TryLoadTextAsset()

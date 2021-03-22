@@ -22,6 +22,7 @@
   "obj": {
     "bul": false,
     "nested": {},
-    "str": "str"
+    "str": "str",
+    "dabl": 3.3
   }
 }
