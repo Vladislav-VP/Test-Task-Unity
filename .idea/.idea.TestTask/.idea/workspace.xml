@@ -20,13 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7d24e69f-5356-4378-a99e-6a987541cea2" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/contentModel.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Json/array.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Json/array.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs.meta" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,7 +118,7 @@
       <workItem from="1616139122131" duration="13049000" />
       <workItem from="1616154193393" duration="16423000" />
       <workItem from="1616402070770" duration="2200000" />
-      <workItem from="1616407795700" duration="3556000" />
+      <workItem from="1616407795700" duration="6653000" />
     </task>
     <servers />
   </component>

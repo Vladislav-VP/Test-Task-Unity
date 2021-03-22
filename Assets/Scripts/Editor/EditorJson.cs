@@ -10,11 +10,6 @@ public class EditorJson : EditorWindow
 {
     private static FileHelper fileHelper = new FileHelper();
     private static JsonParser parser = new JsonParser();
-    
-    private JToken rootObject = null;
-    private Dictionary<JToken, bool> foldState = new Dictionary<JToken, bool>();
-    private Dictionary<JToken, string> addObjName = new Dictionary<JToken, string>();
-    private Dictionary<JToken, int> addObjType = new Dictionary<JToken, int>();
 
     private bool showFileSettings = true;
     private bool showFileContents;
@@ -44,14 +39,12 @@ public class EditorJson : EditorWindow
         {
             return;
         }
-
-        ResetData();
         
         string json = fileHelper.Load(path);
         dataPath = path;
 
-        rootObject = parser.DeserializeJson(json);
-        if (rootObject == null)
+        parser.DeserializeJson(json);
+        if (parser.RootObject == null)
         {
             EditorUtility.DisplayDialog("Error!", "Invalid JSON Data!", "OK");
             return;
@@ -62,7 +55,7 @@ public class EditorJson : EditorWindow
 
     private void SaveJSON()
     {
-        fileHelper.Save(dataPath, rootObject.ToString());
+        fileHelper.Save(dataPath, parser.RootObject.ToString());
     }
 
     [MenuItem("Window/JSON Editor")]
@@ -123,7 +116,7 @@ public class EditorJson : EditorWindow
             return;
         }
 
-        if (rootObject == null)
+        if (parser.RootObject == null)
         {
             return;
         }
@@ -151,11 +144,11 @@ public class EditorJson : EditorWindow
 
     private void DisplayRootObject()
     {
-        GetAddRow(rootObject);
+        GetAddRow(parser.RootObject);
 
-        if (rootObject.Type == JTokenType.Object)
+        if (parser.RootObject.Type == JTokenType.Object)
         {
-            JObject obj = (JObject)rootObject;
+            JObject obj = (JObject)parser.RootObject;
             foreach (JProperty token in obj.Properties())
             {
                 DisplayItem(token.Value);
@@ -166,9 +159,9 @@ public class EditorJson : EditorWindow
             }
         }
 
-        if (rootObject.Type == JTokenType.Array)
+        if (parser.RootObject.Type == JTokenType.Array)
         {
-            JArray arr = (JArray)rootObject;
+            JArray arr = (JArray)parser.RootObject;
             foreach (JToken token in arr.Children())
             {
                 DisplayItem(token);
@@ -293,37 +286,22 @@ public class EditorJson : EditorWindow
         string name = string.Empty;
         if (parent.Type == JTokenType.Object)
         {
-            if (addObjName.ContainsKey(parent))
-            {
-                name = addObjName[parent];
-            }
-            else
-            {
-                addObjName.Add(parent, name);
-            }
-
+            name = parser.GetObjectName(parent);
             name = GUILayout.TextField(name, keyFieldStyle);
-            addObjName[parent] = name;
+            parser.SetObjectName(parent, name);
         }
 
-        int selected = 0;
-        if (addObjType.ContainsKey(parent))
-        {
-            selected = addObjType[parent];
-        }
-        else
-        {
-            addObjType.Add(parent, selected);
-        }
+        int selected = parser.GetObjectType(parent);
         selected = EditorGUILayout.Popup(string.Empty, selected, parser.ValueTypes, dropDownStyle);
-        addObjType[parent] = selected;
+        parser.SetObjectType(parent, selected);
+        
         if (GUILayout.Button("Add Object", btnAddStyle))
         {
-            JToken val = parser.ParseValue(selected);
+            JToken token = parser.ParseValue(selected);
             if (parent.Type == JTokenType.Array)
             {
                 JArray array = (JArray)parent;
-                array.Add(val);
+                array.Add(token);
             }
             if (parent.Type == JTokenType.Object)
             {
@@ -333,8 +311,8 @@ public class EditorJson : EditorWindow
                     return;
                 }
 
-                obj.Add(name, val);
-                addObjName[parent] = string.Empty;
+                obj.Add(name, token);
+                parser.SetObjectName(parent,string.Empty);
             }
         }
 
@@ -390,15 +368,7 @@ public class EditorJson : EditorWindow
 
     private bool GetObjectFoldLabel(JToken objectToken)
     {
-        bool foldOut = false;
-        if (foldState.ContainsKey(objectToken))
-        {
-            foldOut = foldState[objectToken];
-        }
-        else
-        {
-            foldState.Add(objectToken, false);
-        }
+        bool foldOut = parser.GetFoldOut(objectToken);
 
         int indentLevel = EditorGUI.indentLevel;
         EditorGUI.indentLevel = 0;
@@ -414,7 +384,7 @@ public class EditorJson : EditorWindow
 
         foldOut = EditorGUILayout.Foldout(foldOut, label);
         EditorGUI.indentLevel = indentLevel;
-        foldState[objectToken] = foldOut;
+        parser.SetFoldOut(objectToken, foldOut);
         return foldOut;
     }
 
@@ -490,12 +460,5 @@ public class EditorJson : EditorWindow
         {
             LoadJSON(null);
         }
-    }
-
-    private void ResetData()
-    {
-        foldState.Clear();
-        addObjName.Clear();
-        addObjType.Clear();
     }
 }
