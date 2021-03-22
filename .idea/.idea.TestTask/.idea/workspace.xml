@@ -21,9 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="7d24e69f-5356-4378-a99e-6a987541cea2" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Json/array.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Json/array.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Json/simple.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Json/simple.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/FileHelper.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/FileHelper.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -67,10 +66,10 @@
         <option value="$PROJECT_DIR$/Assets/Json/array.json" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/BoundsDrawer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/FileHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/FileHelper.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Utils/JsonParser.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" />
       </list>
     </option>
   </component>
@@ -120,7 +119,7 @@
       <workItem from="1616139122131" duration="13049000" />
       <workItem from="1616154193393" duration="16423000" />
       <workItem from="1616402070770" duration="2200000" />
-      <workItem from="1616407795700" duration="8829000" />
+      <workItem from="1616407795700" duration="9137000" />
     </task>
     <servers />
   </component>
