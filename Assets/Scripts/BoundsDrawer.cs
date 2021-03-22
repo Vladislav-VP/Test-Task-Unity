@@ -29,12 +29,12 @@ public class BoundsDrawer : MonoBehaviour
         if (Instance != null)
         {
             Debug.LogWarning("Attempting to dupplicate singleton");
-            Destroy(gameObject);
+            Destroy(this);
             return;
         }
 
         Instance = this;
-        DontDestroyOnLoad(gameObject);
+        DontDestroyOnLoad(this);
     }
 
     private void Update()

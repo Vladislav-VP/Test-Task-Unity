@@ -7,21 +7,16 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="FadeGroup" t="Include">
-          <e p="Editor" t="Include">
-            <e p="EnemySpawner.cs" t="Include" />
-          </e>
-          <e p="Scripts" t="Include">
-            <e p="EnemyController.cs" t="Include" />
-          </e>
+        <e p="Json" t="Include">
+          <e p="JSON file for testing.txt" t="Include" />
         </e>
         <e p="Scripts" t="Include">
+          <e p="BoundsDrawer.cs" t="Include" />
           <e p="Editor" t="Include">
-            <e p="JSONWindow.cs" t="Include" />
+            <e p="EditorJSON.cs" t="Include" />
           </e>
-          <e p="JsonBehaviour.cs" t="Include" />
-          <e p="ParsedData.cs" t="Include" />
           <e p="Utils" t="Include">
+            <e p="FileHelper.cs" t="Include" />
             <e p="JsonSerializer.cs" t="Include" />
           </e>
         </e>

@@ -8,6 +8,9 @@ using UnityEngine;
 
 public class EditorJson : EditorWindow
 {
+    private static FileHelper fileHelper = new FileHelper();
+    private static JsonSerializer serializer = new JsonSerializer();
+    
     private JToken rootObject = null;
     private Dictionary<JToken, bool> foldState = new Dictionary<JToken, bool>();
     private Dictionary<JToken, string> addObjName = new Dictionary<JToken, string>();
@@ -30,18 +33,13 @@ public class EditorJson : EditorWindow
     private GUIStyle textFieldStyle;
     private GUIStyle dropDownStyle;
     private GUIStyle btnAddStyle;
-    private GUIStyle dropDownCreateStyle;
-    private GUIStyle largeLabelStyle;
-    private GUIStyle boldLabelStyle;
 
-
-    private Vector2 scrollPosContent = Vector2.zero;
     private string[] valueTypes = new string[]
     {
         "Boolean", "Integer", "Double", "String", "JObject", "JArray"
     };
 
-    private void ReadJSON(string path)
+    private void LoadJSON(string path)
     {
         if (string.IsNullOrEmpty(path))
         {
@@ -56,8 +54,7 @@ public class EditorJson : EditorWindow
         foldState.Clear();
         addObjName.Clear();
         addObjType.Clear();
-        scrollPosContent = Vector2.zero;
-        string text = File.ReadAllText(path);
+        string text = fileHelper.Load(path);
         dataPath = path;
 
         try
@@ -75,7 +72,7 @@ public class EditorJson : EditorWindow
 
     private void SaveJSON()
     {
-        File.WriteAllText(dataPath, rootObject.ToString());
+        fileHelper.Save(dataPath, rootObject.ToString());
     }
 
     [MenuItem("Window/JSON Editor")]
@@ -115,17 +112,6 @@ public class EditorJson : EditorWindow
         {
             alignment = TextAnchor.LowerLeft
         };
-        dropDownCreateStyle = new GUIStyle(EditorStyles.popup)
-        {
-            alignment = TextAnchor.LowerLeft,
-            stretchWidth = false
-        };
-        largeLabelStyle = new GUIStyle(EditorStyles.largeLabel)
-        {
-            fontStyle = FontStyle.Bold,
-            fontSize = 14
-        };
-        boldLabelStyle = new GUIStyle(EditorStyles.boldLabel);
     }
 
     private void OnGUI()
@@ -177,7 +163,6 @@ public class EditorJson : EditorWindow
     private void DisplayRootObject()
     {
         GetAddRow(rootObject);
-        scrollPosContent = GUILayout.BeginScrollView(scrollPosContent, new GUIStyle());
 
         if (rootObject.Type == JTokenType.Object)
         {
@@ -269,8 +254,6 @@ public class EditorJson : EditorWindow
         GetKey(objectToken);
         bool foldOut = GetObjectFoldLabel(objectToken);
         GUILayout.EndHorizontal();
-
-
 
         if (!foldOut)
         {
@@ -541,7 +524,7 @@ public class EditorJson : EditorWindow
 
         if (loadClicked)
         {
-            ReadJSON(dataPath);
+            LoadJSON(dataPath);
             loadClicked = false;
             asset = null;
         }
@@ -551,7 +534,7 @@ public class EditorJson : EditorWindow
     {
         if (GUILayout.Button("Browse"))
         {
-            ReadJSON(null);
+            LoadJSON(null);
         }
     }
 }

@@ -1,32 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:Json-editor-unity" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="7d24e69f-5356-4378-a99e-6a987541cea2" name="Default Changelist" comment="" />
+    <list default="true" id="7d24e69f-5356-4378-a99e-6a987541cea2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/contentModel.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/indexLayout.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.TestTask/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Json/array.json" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Json/array.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Prefabs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/SampleScene.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/BoundsDrawer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/BoundsDrawer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/437BA245-D840-4784-B9FB-AB9B439AC908/10/fba99865/Object.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/ef/64c1178c/AnimBool.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/FileHelper.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/dc/789d6645/Editor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/D1E10579-DEED-45ED-81C1-364E82F07367/d0/c40b16c7/EditorWindow.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/f6/bf817b87/JTokenType.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/351E49E2-A5BF-4FD6-BEAB-B458CE2255F3/f2/a50ce978/Enumerable.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/10/849553c8/Selection.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/bf/4fa3442f/SerializedObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file:///Applications/Unity/Hub/Editor/2019.3.8f1/Unity.app/Contents/Resources/PackageManager/BuiltInPackages/com.unity.ugui/Editor/UI/ButtonEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/22/70f078ec/EditorUtility.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/61/97a78b9e/JToken.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/C4AF769B-3F82-4900-9346-13D625CDB417/07/bb0d9b3e/File.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/0e/62379844/JProperty.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/0e/62379844/JProperty.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/181C4530-2DC2-4CDD-ADF8-04F6B6373BA1/46/1afe599c/EditorGUILayout.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/81CB0657-EDC3-4C80-AE70-3FDAD430D6A0/6a/27c57cc8/GUILayout.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/FadeGroup/Editor/EnemySpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/eb/ae5e3fb2/JContainer.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/eb/ae5e3fb2/JContainer.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/6c/db18f9e2/JObject.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/3E06577E-D773-42CF-B8A2-04F764348663/69/48284b11/JsonConvert.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
@@ -35,11 +64,14 @@
       <list>
         <option value="$PROJECT_DIR$/Assets/FadeGroup/Editor/EnemySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Json/google-service.txts.txt" />
-        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" />
         <option value="$PROJECT_DIR$/Assets/Json/simple.json" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Editor/JSONWindow.cs" />
         <option value="$PROJECT_DIR$/Assets/Json/array.json" />
         <option value="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/BoundsDrawer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Utils/FileHelper.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/Editor/EditorJson.cs" />
       </list>
     </option>
   </component>
@@ -88,6 +120,8 @@
       <updated>1616139113860</updated>
       <workItem from="1616139122131" duration="13049000" />
       <workItem from="1616154193393" duration="16423000" />
+      <workItem from="1616402070770" duration="2200000" />
+      <workItem from="1616407795700" duration="621000" />
     </task>
     <servers />
   </component>
@@ -96,6 +130,18 @@
   </component>
   <component name="UnityProjectConfiguration" hasMinimizedUI="true" />
   <component name="UnityUnitTestConfiguration" currentTestLauncher="EditMode" />
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
   </component>
@@ -195,75 +241,6 @@
     <state x="623" y="231" key="search.everywhere.popup/0.23.1920.956@0.23.1920.956" timestamp="1616143800633" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs</url>
-          <line>47</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/Utils/JsonSerializer.cs" initialLine="66">
-            <startOffsets>
-              <option value="1111" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1112" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs</url>
-          <line>65</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" initialLine="64">
-            <startOffsets>
-              <option value="1769" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1775" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="49" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs</url>
-          <line>63</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" initialLine="63">
-            <startOffsets>
-              <option value="1689" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1711" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="50" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs</url>
-          <line>64</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" initialLine="69">
-            <startOffsets>
-              <option value="1729" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1752" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="51" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="DotNet Breakpoints">
-          <url>file://$PROJECT_DIR$/Assets/Scripts/ParsedData.cs</url>
-          <line>45</line>
-          <properties documentPath="$PROJECT_DIR$/Assets/Scripts/ParsedData.cs" initialLine="45">
-            <startOffsets>
-              <option value="1084" />
-            </startOffsets>
-            <endOffsets>
-              <option value="1097" />
-            </endOffsets>
-          </properties>
-          <option name="timeStamp" value="52" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Type#Newtonsoft.Json.Linq.JToken" memberName="Parent" />
