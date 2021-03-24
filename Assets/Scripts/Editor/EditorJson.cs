@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class EditorJson : EditorWindow
 {
-    private static FileHelper fileHelper = new FileHelper();
-    private static JsonParser parser = new JsonParser();
+    private FileHelper fileHelper = new FileHelper();
+    private JsonParser parser = new JsonParser();
 
     private bool showFileSettings = true;
     private bool showFileContents;
