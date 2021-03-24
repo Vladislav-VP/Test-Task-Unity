@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
@@ -10,6 +11,8 @@ public class BoundsDrawer : MonoBehaviour
     private GameObject target;
     [SerializeField]
     private Color boundsColor;
+
+    private Bounds genericBounds;
 
     private List<Bounds> allBounds = new List<Bounds>();
 
@@ -44,17 +47,16 @@ public class BoundsDrawer : MonoBehaviour
             return;
         }
 
-        Quaternion originalRotation = transform.rotation;
+        Quaternion originalRotation = target.transform.rotation;
 
-        transform.rotation = Quaternion.identity;
+        target.transform.rotation = Quaternion.identity;
 
         GetAllBounds();
         FillEdges();
 
-        transform.rotation = originalRotation;
-
+        target.transform.rotation = originalRotation;
+        
         TransformEdges();
-        CreateEdgesForTarget();
     }
 
     private void OnDrawGizmos()
@@ -81,58 +83,55 @@ public class BoundsDrawer : MonoBehaviour
         var rendererBounds = renderers.Select(renderer => renderer.bounds);
         var colliderBounds = colliders.Select(collider => collider.bounds);
 
+        genericBounds = new Bounds(Vector3.zero, Vector3.zero);
+
         allBounds.Clear();
 
         allBounds.AddRange(rendererBounds);
         allBounds.AddRange(colliderBounds);
+
+        foreach (Bounds bounds in allBounds)
+        {
+            genericBounds.Encapsulate(bounds);
+        }
     }
 
     private void FillEdges()
     {
         allEdges.Clear();
-
-        foreach (Bounds bounds in allBounds)
-        {
-            GetEdgesFromBounds(bounds);
-        }
+        GetEdgesFromBounds(genericBounds);
     }
 
     private void GetEdgesFromBounds(Bounds bounds)
     {
-        allEdges.Add(new Vector3(bounds.min.x, bounds.min.y, bounds.min.z) - transform.position);
-        allEdges.Add(new Vector3(bounds.max.x, bounds.min.y, bounds.min.z) - transform.position);
-        allEdges.Add(new Vector3(bounds.min.x, bounds.max.y, bounds.min.z) - transform.position);
-        allEdges.Add(new Vector3(bounds.max.x, bounds.max.y, bounds.min.z) - transform.position);
-        allEdges.Add(new Vector3(bounds.min.x, bounds.min.y, bounds.max.z) - transform.position);
-        allEdges.Add(new Vector3(bounds.max.x, bounds.min.y, bounds.max.z) - transform.position);
-        allEdges.Add(new Vector3(bounds.min.x, bounds.max.y, bounds.max.z) - transform.position);
-        allEdges.Add(new Vector3(bounds.max.x, bounds.max.y, bounds.max.z) - transform.position);
+        leftBottomNear = new Vector3(bounds.min.x, bounds.min.y, bounds.min.z) - target.transform.position;
+        leftBottomFar = new Vector3(bounds.min.x, bounds.min.y, bounds.max.z) - target.transform.position;
+        leftTopNear = new Vector3(bounds.min.x, bounds.max.y, bounds.min.z) - target.transform.position;
+        leftTopFar = new Vector3(bounds.min.x, bounds.max.y, bounds.max.z) - target.transform.position;
+        rightBottomNear = new Vector3(bounds.max.x, bounds.min.y, bounds.min.z) - target.transform.position;
+        rightBottomFar = new Vector3(bounds.max.x, bounds.min.y, bounds.max.z) - target.transform.position;
+        rightTopNear = new Vector3(bounds.max.x, bounds.max.y, bounds.min.z) - target.transform.position;
+        rightTopFar = new Vector3(bounds.max.x, bounds.max.y, bounds.max.z) - target.transform.position;
+        
+        allEdges.Add(leftBottomNear);
+        allEdges.Add(leftBottomFar);
+        allEdges.Add(leftTopNear);
+        allEdges.Add(leftTopFar);
+        allEdges.Add(rightBottomNear);
+        allEdges.Add(rightBottomFar);
+        allEdges.Add(rightTopNear);
+        allEdges.Add(rightTopFar);
     }
-
+    
     private void TransformEdges()
     {
-        for (int i = 0; i < allEdges.Count; i++)
-        {
-            allEdges[i] = transform.TransformPoint(allEdges[i]);
-        }
-    }
-
-    private void CreateEdgesForTarget()
-    {
-        float left = allEdges.Min(edge => edge.x);
-        float right = allEdges.Max(edge => edge.x);
-        float bottom = allEdges.Min(edge => edge.y);
-        float top = allEdges.Max(edge => edge.y);
-        float near = allEdges.Min(edge => edge.z);
-        float far = allEdges.Max(edge => edge.z);
-
-        leftBottomNear = new Vector3(left, bottom, near);
-        leftBottomFar = new Vector3(left, bottom, far);
-        leftTopNear = new Vector3(left, top, near);
-        leftTopFar = new Vector3(left, top, far);
-        rightBottomNear = new Vector3(right, bottom, near);
-        rightBottomFar = new Vector3(right, bottom, far);
-        rightTopNear = new Vector3(right, top, near);
-        rightTopFar = new Vector3(right, top, far);
+        leftBottomNear = target.transform.TransformPoint(leftBottomNear);
+        leftBottomFar = target.transform.TransformPoint(leftBottomFar);
+        leftTopNear = target.transform.TransformPoint(leftTopNear);
+        leftTopFar = target.transform.TransformPoint(leftTopFar);
+        rightBottomNear = target.transform.TransformPoint(rightBottomNear);
+        rightBottomFar = target.transform.TransformPoint(rightBottomFar);
+        rightTopNear = target.transform.TransformPoint(rightTopNear);
+        rightTopFar = target.transform.TransformPoint(rightTopFar);
     }
  }
